@@ -1,6 +1,25 @@
 def full_prima(N):
-    # your code here
-    return ''
+  def prime_number(number):
+    if number <= 1:
+      return False
+
+    elif number > 1:
+      # cek faktor
+      for i in range(2, number):
+        if number % i == 0:
+          return False
+          break
+      else:
+        return True
+  # Memeriksa apakah bilangan itu sendiri adalah bilangan prima
+  if not prime_number(N):
+    return False
+
+  for digit in str(N):
+    if not prime_number(int(digit)):
+      return False
+
+  return True
 
 if __name__ == '__main__':
     print(full_prima(2)) # True
